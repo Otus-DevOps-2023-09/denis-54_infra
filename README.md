@@ -1,6 +1,7 @@
 # denis-54_infra
 denis-54 Infra repository
 
+HW: 4
 Первая часть задания:
 
 Использование bastion для доступа к хосту во внетренней сети:
@@ -28,3 +29,13 @@ ssh someinternalhost
 
 bastion_IP = 51.250.68.243
 someinternalhost_IP = 10.128.0.5
+
+HW: 5
+Тут приложены скрипты для
+    Скрипт install_ruby.sh - установка Ruby;
+    Скрипт install_mongodb.sh - установка MongoDB;
+    Скрипт deploy.sh должен - скачиваниā кода, установка зависимостей через bundler и запуск приложения;
+    Скрипт startup-script.sh - всё вместе;
+    startup.yaml - файл с метой для создания ВМ;
+testapp_IP = 51.250.1.183
+testapp_port = 9292
