@@ -9,10 +9,6 @@ variable "zone" {
   # Значение по умолчанию
   default = "ru-central1-a"
 }
-variable region_id {
-  description = "region"
-  default     = "ru-central1"
-}
 variable "public_key_path" {
   # Описание переменной
   description = "Path to the public key used for ssh access"
@@ -26,10 +22,12 @@ variable "subnet_id" {
 variable "service_account_key_file" {
   description = "key .json"
 }
-variable "private_key_path" {
-  description = "Path to the private key for ssh access"
+variable "privat_key_path" {
+  # Описание переменной
+  description = "Path to the privat key used for connection section"
 }
-variable instances {
-  description = "count instances"
-  default     = 1
+variable "zone_app" {
+  description = "Zone in yandex compute instance"
+  # Значение по умолчанию
+  default = "ru-central1-a"
 }
