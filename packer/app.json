@@ -5,24 +5,19 @@
       "service_account_key_file": "{{ user `service_account_key_file`}}",
       "folder_id": "{{ user `folder_id`}}",
       "source_image_family": "ubuntu-1604-lts",
-      "image_name": "reddit-base-{{timestamp}}",
-      "image_family": "reddit-base",
+      "image_name": "reddit-app-base-{{timestamp}}",
+      "image_family": "reddit-app-base",
       "ssh_username": "ubuntu",
       "platform_id": "standard-v3",
       "subnet_id": "{{ user `subnet_id`}}",
       "zone": "{{ user `zone`}}",
-      "use_ipv4_nat": "{{ user `use_ipv4_nat`}}"
+      "use_ipv4_nat": "true"
     }
   ],
   "provisioners": [
     {
       "type": "shell",
       "script": "scripts/install_ruby.sh",
-      "execute_command": "sudo {{.Path}}"
-    },
-    {
-      "type": "shell",
-      "script": "scripts/install_mongodb.sh",
       "execute_command": "sudo {{.Path}}"
     }
   ]

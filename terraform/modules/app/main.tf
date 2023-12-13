@@ -6,16 +6,26 @@
 #  }
 #  required_version = ">= 0.13"
 #}
+provider "yandex" {
+  service_account_key_file = var.service_account_key_file
+  cloud_id                 = var.cloud_id
+  folder_id                = var.folder_id
+  zone                     = var.zone
+
+}
 
 resource "yandex_compute_instance" "app" {
-  name = "reddit-app-${var.environment}"
+  name        = "reddit-db-${var.env}"
+  platform_id = "standard-v3"
 
   labels = {
-    tags = "reddit-app"
+    tags = "reddit-db-${var.env}"
   }
+
   resources {
-    cores  = 2
-    memory = 2
+    core_fraction = 50
+    cores         = 2
+    memory        = 2
   }
 
   boot_disk {
@@ -26,10 +36,9 @@ resource "yandex_compute_instance" "app" {
 
   network_interface {
     subnet_id = var.subnet_id
-    nat = true
   }
 
-  metadata = {
+ metadata = {
     ssh-keys = "ubuntu:${file(var.public_key_path)}"
   }
 }

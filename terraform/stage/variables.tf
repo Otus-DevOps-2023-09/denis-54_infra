@@ -1,6 +1,3 @@
-variable "service_account_key_file" {
-  description = "key.json"
-}
 variable "cloud_id" {
   description = "Cloud"
 }
@@ -9,27 +6,51 @@ variable "folder_id" {
 }
 variable "zone" {
   description = "Zone"
-  # Значение по умолчанию
-  default = "ru-central1-a"
+  default     = "ru-central1-a"
+}
+variable "public_key_path" {
+  description = "Path to the public key used for ssh access"
+}
+variable "private_key_path" {
+  description = "Path to the private key used for ssh access"
+}
+variable "image_id" {
+  description = "Disk image"
+}
+variable "subnet_id" {
+  description = "Subnet"
+}
+variable "service_account_key_file" {
+  description = "key .json"
 }
 variable "service_account_id" {
-  description = "Service account id"
-  type        = string
+  description = "SA id"
 }
-variable "buckets" {
-  description = "List of buckets params"
-  type = map(object({
-    access_key = string
-    secret_key = string
-  }))
-  default = {
-    "stage" = {
-      access_key = "stage_access_key"
-      secret_key = "stage_secret_key"
-    }
-    "prod" = {
-      access_key = "prod_access_key"
-      secret_key = "prod_secret_key"
-    }
-  }
+variable "instances_count" {
+  description = "Default count of instances"
+  type        = number
+  default     = 1
+}
+variable "app_disk_image" {
+  description = "Disk image for reddit app"
+  default     = "reddit-app-base"
+}
+variable "db_disk_image" {
+  description = "Disk image for reddit db"
+  default     = "reddit-db-base"
+}
+variable "bucket_name" {
+  description = "Name of S3 bucket"
+}
+variable "db_id" {
+  description = "YC dynamodb Database ID"
+}
+variable "access_key" {
+  description = "S3 access key"
+}
+variable "secret_key" {
+  description = "S3 secret key"
+}
+variable "env" {
+  description = "Environment stage, prod"
 }

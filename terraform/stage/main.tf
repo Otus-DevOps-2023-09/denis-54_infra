@@ -4,7 +4,7 @@ provider "yandex" {
   folder_id                = var.folder_id
   zone                     = var.zone
 }
-#db_ip_address            = module.db.internal_ip_address_db[0]
+  #db_ip_address            = module.db.internal_ip_address_db[0]
 module "app" {
   source                   = "../modules/app"
   public_key_path          = var.public_key_path
@@ -35,7 +35,7 @@ module "db" {
   cloud_id                 = var.cloud_id
   folder_id                = var.folder_id
   zone                     = var.zone
-  env                      = var.env
+  env                      = var.env 
 
   secret_key               = var.secret_key
   bucket_name              = var.bucket_name
