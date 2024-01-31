@@ -1,7 +1,17 @@
 #!/bin/bash
-sudo apt update
-echo Waiting for apt-get to finish...
-a=1; while [ -n "$(pgrep apt-get)" ]; do echo $a; sleep 1s; a=$(expr $a + 1); done
-sudo apt install mongodb -y
-sudo systemctl start mongodb
-sudo systemctl enable mongodb
+until apt update 2>&1;
+do
+  sleep 1
+done
+
+apt install mongodb -y
+sed -i 's/bind_ip = 127.0.0.1/bind_ip = 0.0.0.0/g' /etc/mongodb.conf
+systemctl start mongodb
+systemctl enable mongodb
+sleep 5
+CHECK_MONGO=`systemctl list-units |grep mongo |grep running`
+
+if [ -n "$CHECK_MONGO"  ]; then
+echo "---MongoDB installed and running---"
+else echo "---MongoDB not installed and running---"
+fi

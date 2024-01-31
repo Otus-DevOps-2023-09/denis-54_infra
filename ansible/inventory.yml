@@ -1,9 +1,12 @@
 app:
   hosts:
+  children:
     appserver:
-      ansible_host: 158.160.54.118
-
+      hosts:
+        62.84.113.95:
 db:
   hosts:
+  children:
     dbserver:
-      ansible_host: 158.160.120.241 # /\n\Z/
+      hosts:
+        130.193.38.250:

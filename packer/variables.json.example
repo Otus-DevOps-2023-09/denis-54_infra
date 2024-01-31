@@ -1,7 +1,6 @@
 {
-    "folder_id": "b1gk6************",
-    "source_image_family": "ubuntu-1604-lts",
-    "service_account_key_file": "key.json.example",
-    "zone": "ru-central1-a",
-    "use_ipv4_nat": "true"
+    "service_account_key_file": "packer/key.json",
+    "folder_id": "12345",
+    "source_image_family": "12345",
+    "subnet_id": "12345"
 }
