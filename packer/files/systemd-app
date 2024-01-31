@@ -1,11 +1,11 @@
 [Unit]
-Description=Puma daemon for reddit app
+Description=Reddit
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/puma
 Type=simple
-WorkingDirectory=/monolith/reddit
+WorkingDirectory=/reddit
+ExecStart=/usr/local/bin/puma
 Restart=always
 
 [Install]
